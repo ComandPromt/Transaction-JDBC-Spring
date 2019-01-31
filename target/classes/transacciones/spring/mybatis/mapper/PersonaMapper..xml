@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="transacciones.spring.mybatis.mapper.PersonaMapper">
+	
+	<select id="getPersona" resultMap="personaRM">
+		 SELECT id, nombre, apellidos FROM persona WHERE id = #{idPersona}
+	</select>
+	
+	<resultMap id="personaRM" type="modelo.Persona">
+		<constructor>
+			<idArg column="id" javaType="integer"/>
+			<arg column="nombre" javaType="java.lang.String"/>
+			<arg column="apellidos" javaType="java.lang.String"/>
+		</constructor>
+	</resultMap>
+</mapper>
